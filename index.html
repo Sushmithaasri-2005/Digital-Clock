@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Digital Clock</title>
+</head>
+<body>
+    <div class="container">
+        <div id="clock">
+            <span id="Hours">00</span>
+            <span>:</span>
+            <span id="Minutes">00</span>
+            <span>:</span>
+            <span id="Second">00</span>
+            <span id="ampm">AM</span>
+        </div>
+    </div>
+    <script>
+        
+        function displayTime(){
+            let datetime=new Date();
+            let hours=datetime.getHours();
+            let mins=datetime.getMinutes();
+            let seconds=datetime.getSeconds();
+            if(hours<=12)
+            document.getElementById('Hours').innerHTML=hours.toString().padStart(2,0)
+            else if(hours>12){
+            document.getElementById('Hours').innerHTML=(hours-12).toString().padStart(2,0)
+            document.getElementById('ampm').innerHTML='PM'}
+            document.getElementById('Minutes').innerHTML=mins.toString().padStart(2,0)
+            document.getElementById('Second').innerHTML=seconds.toString().padStart(2,0)
+        }
+        setInterval(displayTime,500)
+    </script>
+</body>
+</html>
